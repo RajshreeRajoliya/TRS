@@ -4,8 +4,12 @@ import { Routes , Route  } from 'react-router-dom';
 import Auth from './Component/Auth';
 import Buspage from './Component/Buspage';
 import Cart from './Component/Cart'
+import { useSelector } from 'react-redux';
+
 
 function App() {
+  const isLoggedIn = useSelector(state=>state.isLoggedIn)
+
   return (
     <React.Fragment>
  
