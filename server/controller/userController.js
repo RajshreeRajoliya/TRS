@@ -89,16 +89,6 @@ const getUserbyID = async (req, res) => {
 }
 
 
-//Update User
-const updateUser = async (req, res) => {
-  const { id } = req.params;
-  try {
-    let user = await UserModel.findByIdAndUpdate(id,req.body);
-    res.status(200).send({ user });
-  } catch (error) {
-    res.status(400).send({ msg: error.message });
-  }
-}
 
 
-  module.exports = {signupUser , loginUser , getUserbyID , updateUser}
+  module.exports = {signupUser , loginUser , getUserbyID}
