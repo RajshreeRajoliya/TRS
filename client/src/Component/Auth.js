@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { authActions } from "../store";
+import {useNavigate} from "react-router-dom"
 
 const Auth = () => {
 const URL = "http://localhost:8080";
 const dispatch = useDispatch()
+const navigate = useNavigate()
 
   const [isSignup, setisSignup] = useState(false);
 
@@ -40,11 +43,16 @@ const dispatch = useDispatch()
     e.preventDefault();
     if(isSignup) {
       sendRequest("register")
+      .then(()=>dispatch(authActions.login()))
+      .then(()=>navigate('/home'))
       .then((data)=>{
         console.log(data)
       })
+     
     } else {
       sendRequest()
+      .then(()=>dispatch(authActions.login()))
+      .then(()=>navigate('/home'))
       .then((data)=>{
         console.log(data)
       })
