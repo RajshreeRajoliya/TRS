@@ -24,9 +24,11 @@ const Header = () => {
 
         <Box  display='flex'  marginLeft= 'auto'>
 
-        <Button LinkComponent={Link} to = "/auth" variant="contained" sx={{margin : 1 , borderRadius : 10}}color='warning'>SignUp</Button>
+       { !isLoggedIn && <>
+       <Button LinkComponent={Link} to = "/auth" variant="contained" sx={{margin : 1 , borderRadius : 10}}color='warning'>SignUp</Button>
 
-        <Button LinkComponent={Link} to = "/auth" variant="contained" sx={{margin : 1 , borderRadius : 10}}color='warning'>Login</Button>
+<Button LinkComponent={Link} to = "/auth" variant="contained" sx={{margin : 1 , borderRadius : 10}}color='warning'>Login</Button>
+       </>}
 
             {isLoggedIn && <Button variant="contained" LinkComponent={Link} to = "/auth" sx={{margin : 1 , borderRadius : 10}} color='warning'>Logout</Button>}
             
