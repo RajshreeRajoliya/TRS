@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 //User Schema specifying the keys user need to enter, also type is mentioned
 
@@ -32,4 +32,4 @@ const userModelSchema = mongoose.Schema({
 
 const UserModel = mongoose.model("user", userModelSchema);
 
-module.exports = { UserModel };
+export default UserModel;

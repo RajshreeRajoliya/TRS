@@ -1,26 +1,23 @@
-const express = require("express");
-const { Connection } = require("./config/db.js");
-const dotenv = require("dotenv").config();
-const {userRouter} = require("./router/userRoute.js");
-// const {invetoryRouter} = require("./router/inventoryRouter.js")
-// const {oemSpecsRouter} = require("./router/oemRouter.js");
+import express from "express";
+import { Connection } from "./config/db.js";
+import dotenv from "dotenv";
+import userRouter from "./router/userRoute.js";
+import cors from "cors"
+import busRouter from "./router/bus-route.js";
 
-const cors = require("cors");
+dotenv.config()
 const app = express();
 
 //Cors is used to avoid error in frontend and backend 
 
 app.use(cors());
 
-//this express.json is used to get the data from the fronted in json  parsed format
 
 app.use(express.json());
+app.use('/api/user',userRouter);
+app.use("/api/bus", busRouter);
 
-//this index.js file is used to start the server and and so we that we can connect to database and get data
 
-app.use('/user',userRouter)
-// app.use('/inventory',invetoryRouter)
-// app.use('/oem', oemSpecsRouter);
 
 const PORT = process.env.PORT || 8080;
 

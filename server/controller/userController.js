@@ -1,11 +1,12 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
-const bcrypt = require("bcrypt");
-const { UserModel } = require("../model/users.model.js");
+import bcrypt from "bcrypt";
+
+import  UserModel  from "../model/users.model.js";
 
 
 //SIGNUP
-const signupUser = async (req, res) => {
+ export const signupUser = async (req, res) => {
     const { email, password, name } = req.body;
     try {
       let user = await UserModel.find({ email });
@@ -43,7 +44,7 @@ const signupUser = async (req, res) => {
   }
 
   //LOGIN
-  const loginUser = async (req, res) => {
+  export const loginUser = async (req, res) => {
     const { email, password } = req.body;
   
     let user = await UserModel.find({ email });
@@ -77,18 +78,5 @@ const signupUser = async (req, res) => {
     }
   }
 
-  //Get User
-const getUserbyID = async (req, res) => {
-  const { id } = req.params;
-  try {
-    let user = await UserModel.findById(id);
-    res.status(200).send({ user });
-  } catch (error) {
-    res.status(400).send({ msg: error.message });
-  }
-}
+  
 
-
-
-
-  module.exports = {signupUser , loginUser , getUserbyID}
