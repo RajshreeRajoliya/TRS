@@ -13,5 +13,5 @@ Ticket Reservation System using MERN. The application should allow users to brow
 
 ![login](https://github.com/RajshreeRajoliya/TRS/assets/113670900/20d6484e-e796-4020-b9a8-8407affb148a)
 
-![Signup](https://github.com/RajshreeRajoliya/TRS/assets/113670900/e00b7e14-cf67-4759-8958-0c5f6e4f16d8)
+![signin](https://github.com/RajshreeRajoliya/TRS/assets/113670900/ce588cc0-862e-4a0c-8ddf-e40ef2000658)
 
